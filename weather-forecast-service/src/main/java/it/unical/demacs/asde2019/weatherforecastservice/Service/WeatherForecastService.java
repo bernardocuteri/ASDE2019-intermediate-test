@@ -14,7 +14,7 @@ public class WeatherForecastService {
 		ArrayList<Integer> temperatures = new ArrayList<Integer>();
 		ArrayList<String> weatherValues = new ArrayList<String>();
 		Random rand = new Random();
-		if(location_name.equals("Rende"))
+		if(location_name.equals("Rende") || location_name.equals("rende"))
 		{
 			for(int i = 0; i < 3; i++ ) {
 				temperatures.add(15);

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import weatherForecastBaseInstance from './../http-client/weather-forecast-base-instance'
-import WeatherForecastDisplay from './WeatherForecastDisplay'
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Table from '@material-ui/core/Table';
@@ -19,6 +18,7 @@ class WeatherForecast extends Component {
             location_name: "",
             temperatures: [],
             weather_values: [],
+            images: [],
             render_weather: false
         }
     }
@@ -73,7 +73,7 @@ class WeatherForecast extends Component {
                     <Table aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell align="center">Tuday</TableCell>
+                                <TableCell align="center">Today</TableCell>
                                 <TableCell align="center">Tomorrow</TableCell>
                                 <TableCell align="center">The Day After</TableCell>
                             </TableRow>
