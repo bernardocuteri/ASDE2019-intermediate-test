@@ -40,19 +40,25 @@ export default class Body extends React.Component {
 
 
     render() {
+        if (this.state.userName !== "") {
 
-        const weathercomp = (
+            const weatherTable = this.state.weathers.map((weatherItem, i) => {
+                return (
+                    <ul>
+                        <li>
+                            <h2>Today the temperature is: {weatherItem[0].temperature} and the condition is {weatherItem[0].condition}</h2>
+                        </li>
+                        <li>
+                            <h2>Tomorrow the temperature is: {weatherItem[1].temperature} and the condition is {weatherItem[1].condition}</h2>
+                        </li>
+                        <li>
+                            <h2>Day After Tomorrow the temperature is: {weatherItem[2].temperature} and the condition is {weatherItem[2].condition}</h2>
+                        </li>
+                    </ul>
+                )
+            });
+        } 
 
-            <Grid item xs={12}>
-                    <Grid container justify="space-between" spacing={1}>
-                        {['today', 'tomorrow', 'day after tomorrow'].map(value => (
-                            <Grid key={value} item>
-                                <Button>weather {value}</Button>
-                            </Grid>
-                        ))}
-                    </Grid>
-                </Grid>
-        );
 
         return (
 
@@ -89,7 +95,15 @@ export default class Body extends React.Component {
 
                 </Grid>
 
-                
+                <Grid item xs={12}>
+                    <Grid container justify="space-between" spacing={1}>
+                        {['today', 'tomorrow', 'day after tomorrow'].map(value => (
+                            <Grid key={value} item>
+                                <Button>weather {value}</Button>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Grid>
             </Grid >
         );
 
