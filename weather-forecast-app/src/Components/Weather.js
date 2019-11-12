@@ -80,20 +80,17 @@ export default class Weather extends React.Component {
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="center">Today</TableCell>
-                            <TableCell align="center">Tomorrow</TableCell>
-                            <TableCell align="center">Third day</TableCell>
+                            <TableCell align="center">Temperature</TableCell>
+                            <TableCell align="center">Condition</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {this.state.weather.map((w, index) =>
-                            <div>
-
+                            <TableRow>
                                 <TableCell align="center">{w.temperature}</TableCell>
                                 <TableCell align="center">{w.condition}</TableCell>
                                 <TableCell align="center"><img src={this.state.images[index]}></img></TableCell>
-
-                            </div>
+                            </TableRow>
                         )}
                     </TableBody>
                 </Table>
