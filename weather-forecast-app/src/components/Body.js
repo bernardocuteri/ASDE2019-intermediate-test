@@ -2,6 +2,9 @@ import React from 'react'
 import BaseInstance from '../http-client/BaseInstance';
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
+import sunny from '../icons/sun.png';
+import cloudy from '../icons/cloudy.png';
+import rainy from '../icons/rain.png';
 
 export default class Body extends React.Component {
 
@@ -57,13 +60,22 @@ export default class Body extends React.Component {
             return (
                 <div>
                     <h1 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        {this.state.day1_weather} {this.state.day1_temperature}
+                        {this.state.day1_weather === "sunny" &&  <img src={sunny} width={100} height={100} mode='fit'/>} 
+                        {this.state.day1_weather === "rainy" &&  <img src={rainy} width={100} height={100} mode='fit'/>}
+                        {this.state.day1_weather === "cloudy" &&  <img src={cloudy} width={100} height={100} mode='fit'/>}
+                        {this.state.day1_temperature}°
                     </h1>
                     <h1 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        {this.state.day2_weather} {this.state.day2_temperature}
+                        {this.state.day2_weather === "sunny" &&  <img src={sunny} width={100} height={100} mode='fit'/>} 
+                        {this.state.day2_weather === "rainy" &&  <img src={rainy} width={100} height={100} mode='fit'/>}
+                        {this.state.day2_weather === "cloudy" &&  <img src={cloudy} width={100} height={100} mode='fit'/>}
+                        {this.state.day2_temperature}°
                     </h1>
                     <h1 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        {this.state.day3_weather} {this.state.day3_temperature}
+                        {this.state.day3_weather === "sunny" &&  <img src={sunny} width={100} height={100} mode='fit'/>} 
+                        {this.state.day3_weather === "rainy" &&  <img src={rainy} width={100} height={100} mode='fit'/>}
+                        {this.state.day3_weather === "cloudy" &&  <img src={cloudy} width={100} height={100} mode='fit'/>}
+                        {this.state.day3_temperature}°
                     </h1>
                     
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
