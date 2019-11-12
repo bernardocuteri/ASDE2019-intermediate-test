@@ -2,13 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography';
 
-export default class Slots extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            conds: props.forecast
-        }
-    }
+export default class Forecast extends React.Component {
 
     render() {
         return (
