@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class WeatherController {
-
+	// this doesnt work in this project but if you copy paste to another project. dont ask me why. prof saw during the test that it worked ...
 
 	
 	@CrossOrigin
