@@ -20,3 +20,11 @@
 .App-link {
   color: #09d3ac;
 }
+
+.m-5 {
+  max-width: 30rem !important;
+}
+
+.mt-1 {
+  margin-top: 1rem !important;
+}
