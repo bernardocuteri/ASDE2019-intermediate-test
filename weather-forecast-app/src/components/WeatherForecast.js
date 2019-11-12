@@ -4,6 +4,7 @@ import weatherForecastBaseInstance from './../http-client/weather-forecast-base-
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Table from '@material-ui/core/Table';
+import WeatherForecastDisplay from "./WeatherForecastDisplay"
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
@@ -80,9 +81,27 @@ class WeatherForecast extends Component {
                         </TableHead>
                         <TableBody>
                             <TableRow>
-                                <TableCell align="center">{this.state.temperatures[0]}° / {this.state.weather_values[0]}</TableCell>
-                                <TableCell align="center">{this.state.temperatures[1]}° / {this.state.weather_values[1]}</TableCell>
-                                <TableCell align="center">{this.state.temperatures[2]}° / {this.state.weather_values[2]}</TableCell>
+                                <TableCell align="center">
+                                    {this.state.temperatures[0]}° /
+                                    {this.state.weather_values[0]}
+                                    <WeatherForecastDisplay
+                                        weather_value={this.state.weather_values[0]}
+                                    />
+                                </TableCell>
+                                <TableCell align="center">
+                                    {this.state.temperatures[1]}° /
+                                    {this.state.weather_values[1]}
+                                    <WeatherForecastDisplay
+                                        weather_value={this.state.weather_values[1]}
+                                    />
+                                </TableCell>
+                                <TableCell align="center">
+                                    {this.state.temperatures[2]}° /
+                                    {this.state.weather_values[2]}
+                                    <WeatherForecastDisplay
+                                        weather_value={this.state.weather_values[2]}
+                                    />
+                                </TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>

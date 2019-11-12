@@ -1,39 +1,38 @@
 import React, { Component } from 'react';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import cloud from './../images/cloud.png'
+import rain from './../images/cloud.png'
+import sun from './../images/cloud.png'
 
 class WeatherForecastDisplay extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            temperatures: props.temperatures,
-            weather_values: props.weather_values
+            images: []
+        }
+        if (props.weather_value === "rain") {
+            this.setState({
+                image: rain
+            });
         }
 
+        if (props.weather_value === "sun") {
+            this.setState({
+                image: sun
+            });
+        }
+
+        if (props.weather_value === "cloud") {
+            this.setState({
+                image: cloud
+            });
+        }
         console.log(props);
     }
 
     render() {
         return (
-            <Paper>
-                <Table aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell align="center">Tuday</TableCell>
-                            <TableCell align="center">Tomorrow</TableCell>
-                            <TableCell align="center">The Day After</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                    </TableBody>
-                </Table>
-                <h1>{this.state.temperatures[0]}</h1>
-            </Paper>
+            <img src={this.state.image}></img>
         );
     }
 }
