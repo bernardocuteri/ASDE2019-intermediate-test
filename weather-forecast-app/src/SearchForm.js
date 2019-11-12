@@ -103,8 +103,8 @@ class SearchForm extends React.Component {
                 <div>
                     {this.getWeatherString()}
 
-                    {this.state.weather.map(forecast =>
-                        <div>
+                    {this.state.weather.map((forecast, i) =>
+                        <div key={i}>
                             <h3>{forecast.description} with {forecast.degrees}° degrees {this.getIcon(forecast.description)} </h3>
                         </div>
                     )}
