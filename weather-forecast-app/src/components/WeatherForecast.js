@@ -16,6 +16,7 @@ export default class WeatherForecast extends React.Component {
         }
     }
 
+    
     onSelectedLocationName = () => {
         WeatherForecastServiceClient.post("/forecastInfo", { locationName: this.state.selectingLocationName }).then((res) => {
             this.setState({
