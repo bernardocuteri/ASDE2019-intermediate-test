@@ -23,4 +23,7 @@ public class Forecast {
 		this.temperature = temperature;
 		this.day = day;
 	}
+	public void setValue(String value) {
+		this.value = value;
+	}
 }

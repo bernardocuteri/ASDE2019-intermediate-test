@@ -31,13 +31,31 @@ public class Weather {
 			e.printStackTrace();
 		}
 		for (int i = 0; i < 3; i++)
-			if (location.toLowerCase().equals("rende"))
-				forecasts.add(new Forecast("rain", 15, days[i]));
-			else
-				forecasts.add(new Forecast(days[i]));
+			if (location.toLowerCase().equals("rende")) {
+				Forecast forecast = new Forecast("rain", 15, days[i]);
+				if(i==0)
+					try {
+						forecast.setValue(getCurrentWeather());
+					} catch (ParseException | IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				forecasts.add(forecast);
+			}
+			else {
+				Forecast forecast = new Forecast(days[i]);
+				if(i==0)
+					try {
+						forecast.setValue(getCurrentWeather());
+					} catch (ParseException | IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				forecasts.add(forecast);
+			}
 	}
 	
-	public void getCurrentWeather() throws ParseException, IOException {
+	public String getCurrentWeather() throws ParseException, IOException {
 		String KEY = "673579e891a54ac88a220253c640031e";
 		final CloseableHttpClient httpClient = HttpClients.createDefault();
 		HttpGet request = new HttpGet("http://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+KEY);
@@ -47,13 +65,10 @@ public class Weather {
             if (entity != null) {
                 // return it as a String
                 String result = EntityUtils.toString(entity);
-                System.out.println(result);
                 JsonObject jsonObject = new Gson().fromJson(result, JsonObject.class);
-                System.out.println(jsonObject.get("weather"));
-                //JsonObject jsonObject2 = new Gson().fromJson(jsonObject.get("weather"), JsonObject.class);
-                //System.out.println(jsonObject2.get("main"));
+                return jsonObject.get("weather").getAsJsonArray().get(0).getAsJsonObject().get("main").getAsString();
             }
-
+           return "Sunny";
         }
 		
 	}
